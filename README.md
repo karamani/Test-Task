@@ -10,6 +10,7 @@ NSTest/main.go — исходный код веб-службы на golang
 index.html — страница для отправки запросов
 
 Веб-служба запускается с параметром -conn string, где string - строка, содержащая параметры соединения с БД в формате:
+
   username:password@protocol(host:port)/database
   
 По умолчанию используется бесплатный сервер mySQL.
