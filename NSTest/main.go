@@ -152,8 +152,10 @@ func httpHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	//Прослушиваемый порт
+	addrString := flag.String("addr", ":80", "host:port of http-service")
 	//Строка с параметрами соединения передается в параметрах командной строки
-	connString := flag.String("conn", "sql7149110:tjlEzXXbvG@tcp(sql7.freemysqlhosting.net:3306)/sql7149110", "user:password@protocol(host:port)/database")
+	connString := flag.String("conn", "sql7149110:tjlEzXXbvG@tcp(sql7.freemysqlhosting.net:3306)/sql7149110", "user:password@protocol(host:port)/database of mySQL")
 	//Подключение к БД
 	db, err := sql.Open("mysql", *connString)
 	if err != nil {
@@ -174,5 +176,5 @@ func main() {
 	}
 	//Запуск HTTP сервера
 	http.HandleFunc("/price/", httpHandler)
-	http.ListenAndServe(":80", nil)
+	http.ListenAndServe(addrString, nil)
 }
