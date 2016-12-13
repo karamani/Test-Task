@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Test</title>
+		<script type="text/javascript">
+			document.addEventListener("DOMContentLoaded", OnLoad);
+			function OnLoad() {
+				sendField = document.getElementById("sendAddr");
+				getField = document.getElementById("getAddr");
+				sendForm = document.getElementById("sendForm");
+				getForm = document.getElementById("getForm");
+			};
+			function ResetAddr() {
+				sendForm.action = sendField.value;
+				getForm.action = getField.value;
+			};
+  		</script>
+	</head>
+	<body>
+		<form enctype="multipart/form-data" id="sendForm" method="POST" action="http://localhost:80/price/1/upload">
+			<input type="submit" value="Post">
+			<input type="file" name="scv">
+		</form>
+		<form id="getForm" method="GET" action="http://localhost:80/price/1">
+			<input type="submit" value="Get">
+			skip: <input type="text" size="3" name="skip" value="">
+			limit: <input type="text" size="3" name="limit" value="">
+		</form>
+		POST addres: <input type="text" onchange="javascript:ResetAddr()" size="50" id="sendAddr" value="http://localhost:80/price/1/upload"><br>
+		GET address: <input type="text" onchange="javascript:ResetAddr()" size="50" id="getAddr" value="http://localhost:80/price/1">
+	</body>
+</html>
