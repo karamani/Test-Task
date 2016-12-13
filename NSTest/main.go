@@ -176,5 +176,5 @@ func main() {
 	}
 	//Запуск HTTP сервера
 	http.HandleFunc("/price/", httpHandler)
-	http.ListenAndServe(addrString, nil)
+	http.ListenAndServe(*addrString, nil)
 }
