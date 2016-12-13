@@ -153,7 +153,7 @@ func httpHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	//Строка с параметрами соединения передается в параметрах командной строки
-	connString := flag.String("conn", "sql7149110:tjlEzXXbvG@tcp(sql7.freemysqlhosting.net:3306)/sql7149110", "user:password@protocol(ip:port)/database")
+	connString := flag.String("conn", "sql7149110:tjlEzXXbvG@tcp(sql7.freemysqlhosting.net:3306)/sql7149110", "user:password@protocol(host:port)/database")
 	//Подключение к БД
 	db, err := sql.Open("mysql", *connString)
 	if err != nil {
